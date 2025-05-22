@@ -25,6 +25,7 @@ export default function Header(){
         ev.preventDefault();
         setShow(!show);
     }
+   const [expand, setExpand] = useState(false);
     return(
         <>
             <header className={"header"}>
@@ -57,7 +58,7 @@ export default function Header(){
                                 absoluteStrokeWidth/></Link>
                         </Form>
                         <Link to={"#"} className={"icon"}><LucideShoppingBag absoluteStrokeWidth/></Link>
-                        <Link to={"#"} onClick={increaseSearchWidth} className={"icon sm-search "}><LucideSearch
+                        <Link to={"#"} onClick={()=>setExpand(!expand)} className={"icon sm-search "}><LucideSearch
                             absoluteStrokeWidth/></Link>
                         <button onClick={()=>setOpen(!open)} className={"icon sm-bar"}><LucideMenu
                             absoluteStrokeWidth/></button>
@@ -71,10 +72,11 @@ export default function Header(){
                 </div>
 
             </header>
-            <Form method={"get"} className={"drop-search"}>
+            <m.form initial={{height: 0, overflow: "hidden"}} animate={{height: expand?"94":0}} method={"get"}
+                    className={"drop-search"+(!expand? "py-0!":"")}>
                 <label hidden htmlFor={"search"}>Search</label>
                 <input  type={"search"} name={"search"} placeholder={"search for items...."} id={"search"}/>
-            </Form>
+            </m.form>
             <Sheet open={open} onOpenChange={setOpen} modal>
                 <SheetContent className={"sidebar"} side={"top"}>
                     <div className={"contents"}>

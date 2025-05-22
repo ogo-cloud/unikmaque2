@@ -4,7 +4,7 @@
 @import "swiper/css/autoplay";
 @import "swiper/css/a11y";
 @import "swiper/css/effect-fade";
-/*@import "swiper/css/navigation";*/
+@import "swiper/css/navigation";
 
 /*---break---*/
 /*@custom-variant dark (&:is(.dark *));*/
@@ -247,7 +247,7 @@ body {
 }
 
 .drop-search{
-  @apply sticky left-0 top-12 flex items-center gap-x-2 z-[5] sm:hidden bg-white  w-[95%] mx-auto pt-12 pb-3 px-3 border border-gray-300 rounded-b-xl;
+  @apply sticky left-0 top-12 flex items-center gap-x-2 z-[5] sm:hidden bg-white  w-[95%] mx-auto pt-12 pb-5 px-3 border border-gray-300 rounded-b-xl;
   input{ @apply pl-5 py-1 pr-1 h-8 transition-all duration-700 outline-0  rounded-4xl bg-gray-100  cursor-default caret-pink-500 w-full; }
   input:focus{
     @apply border border-gray-400;
@@ -256,7 +256,7 @@ body {
 .advert{
   @apply relative h-max;
   .slide_btn{
-    @apply flex justify-center items-center md:items-start md:pt-28 absolute h-full top-0 w-16 z-[1] px-5;
+    @apply flex justify-center items-center md:items-start md:pt-28 absolute h-full top-0 w-16 z-2 px-5;
 
     &:is(.start){ @apply left-0 }
     &:is(.end){ @apply right-0;}
@@ -321,7 +321,7 @@ body {
 }
 .main_items{
 
-  @apply min-h-screen max-w-6xl mx-auto px-3 py-10 sticky z-[1] -mt-16 md:-mt-64;
+  @apply min-h-screen max-w-6xl mx-auto px-3 py-10 sticky z-1 -mt-16 md:mt-40 lg:-mt-64;
   .items {
     @apply flex flex-wrap gap-4;
 
