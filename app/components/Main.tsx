@@ -12,18 +12,27 @@ import jacket from "~/img/items/jacket.jpg";
 
 import {naira} from "~/lib/number-formatter";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCartPlus, faStar} from "@fortawesome/free-solid-svg-icons";
-import {faStar as faStartLight}from "@fortawesome/free-regular-svg-icons";
+import {faArrowRightLong, faCartPlus, faStar} from "@fortawesome/free-solid-svg-icons";
+import {faHeart, faStar as faStartLight} from "@fortawesome/free-regular-svg-icons";
 import {m} from "motion/react";
+import love_grad from "~/img/love-removebg-preview.png";
+import {useState} from "react";
+import {delay} from "motion";
+import {Link} from "react-router";
+
 
 
 export default function Main(){
-
     return (
         <main className={"main_items"}>
             <div className={"items"}>
-                <div className={"e_items"}>
-                    <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={footwear} alt={"e_items"}/>
+                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
+                         whileInView={{opacity: 1, visibility:"visible", y:0}}
+                       transition={{delay: 2}}
+                    className={"e_items"}>
+                    <div className={"fav_img"}>
+                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={footwear} alt={"e_items"}/>
+                    </div>
                     <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
                     <div>
                         <b className={"price"}>{naira.format(13000)}</b>
@@ -46,13 +55,14 @@ export default function Main(){
 
                     </div>
                     <small>44 items left</small>
-                    <button className={"add_cart"}>
-                       <span>Add to cart</span> 
-                        <FontAwesomeIcon icon={faCartPlus}/>
-                    </button>
-                </div>
-                <div className={"e_items"}>
-                    <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={jacket2} alt={"e_items"}/>
+                </m.div>
+                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
+                         whileInView={{opacity: 1, visibility:"visible", y:0}}
+                       transition={{delay: 2}}
+                    className={"e_items"}>
+                    <div className={"fav_img"}>
+                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={watch} alt={"e_items"}/>
+                    </div>
                     <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
                     <div>
                         <b className={"price"}>{naira.format(13000)}</b>
@@ -75,13 +85,14 @@ export default function Main(){
 
                     </div>
                     <small>44 items left</small>
-                    <button className={"add_cart"}>
-                       <span>Add to cart</span>
-                        <FontAwesomeIcon icon={faCartPlus}/>
-                    </button>
-                </div>
-                <div className={"e_items"}>
-                    <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={bags} alt={"e_items"}/>
+                </m.div>
+                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
+                         whileInView={{opacity: 1, visibility:"visible", y:0}}
+                       transition={{delay: 2}}
+                    className={"e_items"}>
+                    <div className={"fav_img"}>
+                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={jacket2} alt={"e_items"}/>
+                    </div>
                     <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
                     <div>
                         <b className={"price"}>{naira.format(13000)}</b>
@@ -104,13 +115,14 @@ export default function Main(){
 
                     </div>
                     <small>44 items left</small>
-                    <button className={"add_cart"}>
-                       <span>Add to cart</span>
-                        <FontAwesomeIcon icon={faCartPlus}/>
-                    </button>
-                </div>
-                <div className={"e_items"}>
-                    <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={shoes} alt={"e_items"}/>
+                </m.div>
+                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
+                         whileInView={{opacity: 1, visibility:"visible", y:0}}
+                       transition={{delay: 2}}
+                    className={"e_items"}>
+                    <div className={"fav_img"}>
+                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={native} alt={"e_items"}/>
+                    </div>
                     <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
                     <div>
                         <b className={"price"}>{naira.format(13000)}</b>
@@ -133,13 +145,14 @@ export default function Main(){
 
                     </div>
                     <small>44 items left</small>
-                    <button className={"add_cart"}>
-                       <span>Add to cart</span>
-                        <FontAwesomeIcon icon={faCartPlus}/>
-                    </button>
-                </div>
-                <div className={"e_items"}>
-                    <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={jeans} alt={"e_items"}/>
+                </m.div>
+                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
+                         whileInView={{opacity: 1, visibility:"visible", y:0}}
+                       transition={{delay: 2}}
+                    className={"e_items"}>
+                    <div className={"fav_img"}>
+                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={shoes} alt={"e_items"}/>
+                    </div>
                     <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
                     <div>
                         <b className={"price"}>{naira.format(13000)}</b>
@@ -162,13 +175,14 @@ export default function Main(){
 
                     </div>
                     <small>44 items left</small>
-                    <button className={"add_cart"}>
-                       <span>Add to cart</span>
-                        <FontAwesomeIcon icon={faCartPlus}/>
-                    </button>
-                </div>
-                <div className={"e_items"}>
-                    <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={jacket} alt={"e_items"}/>
+                </m.div>
+                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
+                         whileInView={{opacity: 1, visibility:"visible", y:0}}
+                       transition={{delay: 2}}
+                    className={"e_items"}>
+                    <div className={"fav_img"}>
+                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={bags} alt={"e_items"}/>
+                    </div>
                     <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
                     <div>
                         <b className={"price"}>{naira.format(13000)}</b>
@@ -191,13 +205,14 @@ export default function Main(){
 
                     </div>
                     <small>44 items left</small>
-                    <button className={"add_cart"}>
-                       <span>Add to cart</span>
-                        <FontAwesomeIcon icon={faCartPlus}/>
-                    </button>
-                </div>
-                <div className={"e_items"}>
-                    <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={watch} alt={"e_items"}/>
+                </m.div>
+                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
+                         whileInView={{opacity: 1, visibility:"visible", y:0}}
+                       transition={{delay: 2}}
+                    className={"e_items"}>
+                    <div className={"fav_img"}>
+                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={jeans} alt={"e_items"}/>
+                    </div>
                     <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
                     <div>
                         <b className={"price"}>{naira.format(13000)}</b>
@@ -220,13 +235,14 @@ export default function Main(){
 
                     </div>
                     <small>44 items left</small>
-                    <button className={"add_cart"}>
-                       <span>Add to cart</span>
-                        <FontAwesomeIcon icon={faCartPlus}/>
-                    </button>
-                </div>
-                <div className={"e_items"}>
-                    <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={native} alt={"e_items"}/>
+                </m.div>
+                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
+                         whileInView={{opacity: 1, visibility:"visible", y:0}}
+                       transition={{delay: 2}}
+                    className={"e_items"}>
+                    <div className={"fav_img"}>
+                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={jacket} alt={"e_items"}/>
+                    </div>
                     <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
                     <div>
                         <b className={"price"}>{naira.format(13000)}</b>
@@ -249,14 +265,13 @@ export default function Main(){
 
                     </div>
                     <small>44 items left</small>
-                    <button className={"add_cart"}>
-                       <span>Add to cart</span>
-                        <FontAwesomeIcon icon={faCartPlus}/>
-                    </button>
-                </div>
+                </m.div>
 
             </div>
-
+            <div className={"view_more"}>
+                <hr/>
+                <Link to={"#"}>See more <FontAwesomeIcon icon={faArrowRightLong}/></Link>
+            </div>
         </main>
     )
 }

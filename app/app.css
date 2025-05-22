@@ -48,20 +48,26 @@
     aspect-square rounded-full p-1.5 size-8 flex items-center justify-center;
   }
   @utility card{
-    @apply flex flex-col gap-2 max-w-xs bg-pink-100/200 backdrop-blur-lg shadow p-3 relative;
+    @apply flex flex-col gap-2 max-w-xs bg-pink-100/200 backdrop-blur-lg shadow p-3 relative cursor-pointer;
     width: calc(50% - theme("gap[2]"));
+    .fav_img{
+      @apply relative;
+      .fav_btn{ @apply  absolute right-5 bottom-5 w-10 h-10 icon bg-pink-100/50 border border-pink-500 text-red-700 ;}
+
+    }
 
     @media (min-width: theme("screens.sm")){
       width: calc(33.333333333333% - theme("gap[3]"));
     }
 
-    @media (min-width: theme("screens.md")){
+   @media (min-width: theme("screens.lg")){
       width: calc(25% - theme("gap[3]"));
     }
-    .title{@apply font-medium text-pink-700 max-sm:text-sm max-sm:truncate;}
+
+    .title{@apply font-medium text-pink-700 max-sm:text-sm max-md:truncate;}
     .discount{
       @apply flex gap-3 items-center;
-      s{ @apply font-medium text-gray-500;}
+      s{ @apply font-medium text-gray-500 text-sm;}
       span{ @apply font-semibold  bg-pink-50 p-0.5 rounded text-pink-700 border text-xs;
       @media (max-width: theme("screens.sm")) {
         @apply absolute top-5 right-5 text-base;
@@ -74,10 +80,17 @@
        .stars{ @apply  text-amber-600 max-sm:text-sm;}
     }
     .add_cart{
-      @apply flex gap-1 items-center justify-center capitalize px-5 py-2 text-sm shadow hover:shadow-none
+      @apply flex gap-1 items-center justify-center capitalize px-3 py-2 text-sm shadow hover:shadow-none
       font-medium bg-pink-500 hover:bg-pink-700 text-white transition-all duration-500;
+
     }
   }
+
+.view_more{
+ @apply flex items-center gap-2 font-medium my-5;
+  hr{ @apply grow border-gray-500;}
+  a{ @apply flex items-center gap-2 hover:text-pink-500 first ;}
+}
 
 
 
