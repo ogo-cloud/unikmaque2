@@ -18,7 +18,7 @@ export default function BannerAdvert (){
     const slide = useSwiper();
     return(
         <section className={"advert"}>
-            <Swiper autoplay navigation loop modules={[Autoplay, EffectFade, A11y]}>
+            <Swiper autoplay  loop modules={[Autoplay, EffectFade, A11y]}>
 
                 <SwiperSlide>
                     <img src={makeup} alt={"make up"}/>

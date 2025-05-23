@@ -19,6 +19,7 @@ import love_grad from "~/img/love-removebg-preview.png";
 import {useState} from "react";
 import {delay} from "motion";
 import {Link} from "react-router";
+import BestSellers from "~/components/BestSellers";
 
 
 
@@ -272,6 +273,7 @@ export default function Main(){
                 <hr/>
                 <Link to={"#"}>See more <FontAwesomeIcon icon={faArrowRightLong}/></Link>
             </div>
+            <BestSellers/>
         </main>
     )
 }

@@ -4,7 +4,7 @@ export default [
     layout(
         "routes/layout.tsx",
         [
-            index("routes/Home.tsx"),
+            index("routes/home.tsx"),
             route("account/signup", "routes/signup.tsx")
 
         ])

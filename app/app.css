@@ -89,7 +89,7 @@
 .view_more{
  @apply flex items-center gap-2 font-medium my-5;
   hr{ @apply grow border-gray-500;}
-  a{ @apply flex items-center gap-2 hover:text-pink-500 first ;}
+  a{ @apply flex items-center gap-2 hover:text-pink-500 ;}
 }
 
 
@@ -301,7 +301,7 @@ body {
       @apply flex flex-col gap-y-3 text-sm text-pink-100/50;
       .pay_img{
         @apply flex items-center gap-3;
-        a{@apply p-1 bg-white/80;}
+        a{@apply p-2 bg-white/80;}
       }
       }
   }
