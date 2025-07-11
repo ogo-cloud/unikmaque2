@@ -13,12 +13,28 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronCircleLeft, faChevronCircleRight, faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 
 
-
-export default function BannerAdvert (){
+function SlideNavigation(){
     const slide = useSwiper();
     return(
+        <>
+        <div className={"slide_btn start"}>
+            <button onClick={() => slide.slidePrev()}>
+                <FontAwesomeIcon icon={faChevronCircleLeft} size={"2xl"}/></button>
+
+        </div>
+        <div className={"slide_btn end"}>
+            <button onClick={() => slide.slideNext()}>
+                <FontAwesomeIcon icon={faChevronCircleRight} size={"2xl"}/></button>
+
+        </div>
+    </>);
+}
+
+export default function BannerAdvert() {
+
+    return (
         <section className={"advert"}>
-            <Swiper autoplay  loop modules={[Autoplay, EffectFade, A11y]}>
+            <Swiper autoplay loop modules={[Autoplay, EffectFade, A11y]}>
 
                 <SwiperSlide>
                     <img src={makeup} alt={"make up"}/>
@@ -29,20 +45,10 @@ export default function BannerAdvert (){
                 <SwiperSlide>
                     <img src={cream} alt={"make up"}/>
                 </SwiperSlide>
-
+              <SlideNavigation/>
             </Swiper>
 
 
-            <div className={"slide_btn start"} >
-                <button onClick={() => slide.slidePrev()}>
-                    <FontAwesomeIcon icon={faChevronCircleLeft} size={"2xl"}/></button>
-
-            </div>
-            <div className={"slide_btn end"} >
-                <button onClick={() => slide.slideNext()}>
-                    <FontAwesomeIcon icon={faChevronCircleRight} size={"2xl"}/></button>
-
-            </div>
         </section>
     );
 }

@@ -1,5 +1,5 @@
 import {Form, Link} from "react-router";
-import {LucideMenu, LucideSearch, LucideShoppingBag, User, UserPlus} from "lucide-react";
+import {Loader, LucideMenu, LucideSearch, LucideShoppingBag, ShoppingBag, User, UserPlus} from "lucide-react";
 import {m,useAnimate} from "motion/react";
 import React, {type BaseSyntheticEvent, useCallback, useState} from "react";
 import {
@@ -13,6 +13,8 @@ import Category from "~/components/Category";
 import {Sheet, SheetContent, SheetFooter} from "~/components/ui/sheet";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebook, faInstagram, faThreads} from "@fortawesome/free-brands-svg-icons";
+import useCart from "~/hooks/useCart";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -26,6 +28,7 @@ export default function Header(){
         setShow(!show);
     }
    const [expand, setExpand] = useState(false);
+    const {items, loading} = useCart();
     return(
         <>
             <header className={"header"}>
@@ -57,7 +60,16 @@ export default function Header(){
                             <Link to={"#"} className={"icon "} onClick={increaseSearchWidth}><LucideSearch
                                 absoluteStrokeWidth/></Link>
                         </Form>
-                        <Link to={"#"} className={"icon"}><LucideShoppingBag absoluteStrokeWidth/></Link>
+
+                        <Link to={"/cart"} className={"icon cart"}>
+
+
+                            {loading ? (
+                                <Loader absoluteStrokeWidth className={"animate-spin text-pink-500"}/>
+                            ) : (
+                                    <ShoppingBag absoluteStrokeWidth />)}
+                         <div className={"count"}>{items.length}</div>
+                        </Link>
                         <Link to={"#"} onClick={()=>setExpand(!expand)} className={"icon sm-search "}><LucideSearch
                             absoluteStrokeWidth/></Link>
                         <button onClick={()=>setOpen(!open)} className={"icon sm-bar"}><LucideMenu

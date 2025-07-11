@@ -9,7 +9,10 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import { LazyMotion,domAnimation} from "motion/react";
+import AddToCart from "~/contexts/AddToCart";
+import Countries from "~/contexts/Countries";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -20,7 +23,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap",
   },
 ];
 
@@ -34,11 +37,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-      <LazyMotion features={domAnimation}>
-        {children}
-        </LazyMotion>
-        <ScrollRestoration />
-        <Scripts />
+      <AddToCart>
+           <Countries>
+              <LazyMotion features={domAnimation}>
+                  {children}
+              </LazyMotion>
+            </Countries>
+      </AddToCart>
+
+          <ScrollRestoration />
+          <Scripts />
+
       </body>
     </html>
   );

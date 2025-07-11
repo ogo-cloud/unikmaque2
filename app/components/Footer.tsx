@@ -20,7 +20,7 @@ export default function Footer(){
 
                 {/*Logo Section*/}
                 <div className={"brand"}>
-                    <Link to={"/"}><b className={"text-primary-dark"}>Unik</b>
+                    <Link to={"/"}><b>Unik</b>
                         <span className={"text-pink-500"}>Maque2</span></Link>
 
                     <div className={"foot"}>
@@ -60,7 +60,7 @@ export default function Footer(){
                         <Link to={"#"}><img className={"w-24 h-auto"} src={wave} alt={"flutter logo"}/></Link>
                             <Link to={"#"}><img className={"w-16 h-auto"} src={visa} alt={"visa logo"}/></Link>
                             <Link to={"#"}><img className={"w-12 h-auto"} src={mastercard} alt={"mastercard logo"}/></Link>
-                            <Link to={"#"}><img className={"w-10 h-auto"} src={verve} alt={"verve logo"}/></Link>
+                            <Link to={"#"}><img className={"w-12 h-auto"} src={verve} alt={"verve logo"}/></Link>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import type { Route } from "./+types/Home";
+import type { Route } from "./+types/home";
 
 import {lazy} from "react";
 import Home from "app/components/Home";

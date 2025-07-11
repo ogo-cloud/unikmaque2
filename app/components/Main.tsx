@@ -20,260 +20,73 @@ import {useState} from "react";
 import {delay} from "motion";
 import {Link} from "react-router";
 import BestSellers from "~/components/BestSellers";
+import GroupCategory from "~/components/GroupCategory";
+
+import items from "~/components/items";
+import _ from "lodash";
+import useCart from "~/hooks/useCart";
 
 
 
 export default function Main(){
+    const imgs = [footwear,shoes,watch,bags,jacket,jacket2,native,jeans];
+
+    const {addCart} = useCart();
     return (
         <main className={"main_items"}>
-            <div className={"items"}>
-                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
-                         whileInView={{opacity: 1, visibility:"visible", y:0}}
-                       transition={{delay: 2}}
-                    className={"e_items"}>
-                    <div className={"fav_img"}>
-                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={footwear} alt={"e_items"}/>
-                    </div>
-                    <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
-                    <div>
-                        <b className={"price"}>{naira.format(13000)}</b>
-                        <div className={"discount"}>
-                            <s>{naira.format(17500)}</s>
-                            <span>10%</span>
-                        </div>
-                    </div>
+            <div>
+                <div className={"items"}>
+                    {
+                        _.map(imgs, (src, i) => (
 
-                    <div className={"rating"}>
-                        <div className={"stars"}>
+                            <m.div key={i} initial={{opacity: 0, visibility: "hidden", y: 20}}
+                                   whileInView={{opacity: 1, visibility: "visible", y: 0}}
+                                   transition={{delay: 2}}
+                                   className={"e_items bg-blur"}>
+                                <div className={"fav_img"}>
+                                    <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={src} alt={"e_items"}/>
+                                </div>
+                                <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
+                                <div>
+                                    <b className={"price"}>{naira.format(13000)}</b>
+                                    <div className={"discount"}>
+                                        <s>{naira.format(17500)}</s>
+                                        <span>{10 + (i * _.random(1, 10))}%</span>
+                                    </div>
+                                </div>
 
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStartLight} size={"lg"}/>
-                        </div>
-                        <span>(3990)</span>
+                                <div className={"rating"}>
+                                    <div className={"stars"}>
 
-                    </div>
-                    <small>44 items left</small>
-                </m.div>
-                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
-                         whileInView={{opacity: 1, visibility:"visible", y:0}}
-                       transition={{delay: 2}}
-                    className={"e_items"}>
-                    <div className={"fav_img"}>
-                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={watch} alt={"e_items"}/>
-                    </div>
-                    <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
-                    <div>
-                        <b className={"price"}>{naira.format(13000)}</b>
-                        <div className={"discount"}>
-                            <s>{naira.format(17500)}</s>
-                            <span>10%</span>
-                        </div>
-                    </div>
+                                        <FontAwesomeIcon icon={faStar} size={"lg"}/>
+                                        <FontAwesomeIcon icon={faStar} size={"lg"}/>
+                                        <FontAwesomeIcon icon={faStar} size={"lg"}/>
+                                        <FontAwesomeIcon icon={faStar} size={"lg"}/>
+                                        <FontAwesomeIcon icon={faStartLight} size={"lg"}/>
+                                    </div>
+                                    <span>(3990)</span>
 
-                    <div className={"rating"}>
-                        <div className={"stars"}>
+                                </div>
+                                <small>44 items left</small>
 
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStartLight} size={"lg"}/>
-                        </div>
-                        <span>(3990)</span>
+                                <button className={"add_cart"} onClick={()=>(addCart({name: src, id: i}))}>
+                                    <span>Add to cart</span>
+                                    <FontAwesomeIcon icon={faCartPlus}/>
+                                </button>
 
-                    </div>
-                    <small>44 items left</small>
-                </m.div>
-                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
-                         whileInView={{opacity: 1, visibility:"visible", y:0}}
-                       transition={{delay: 2}}
-                    className={"e_items"}>
-                    <div className={"fav_img"}>
-                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={jacket2} alt={"e_items"}/>
-                    </div>
-                    <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
-                    <div>
-                        <b className={"price"}>{naira.format(13000)}</b>
-                        <div className={"discount"}>
-                            <s>{naira.format(17500)}</s>
-                            <span>10%</span>
-                        </div>
-                    </div>
+                            </m.div>
+                        ))
+                    }
+                </div>
+                <div className={"view_more"}>
+                    <hr/>
+                    <Link to={"#"}>See more <FontAwesomeIcon icon={faArrowRightLong}/>
+                    </Link>
+                </div>
 
-                    <div className={"rating"}>
-                        <div className={"stars"}>
-
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStartLight} size={"lg"}/>
-                        </div>
-                        <span>(3990)</span>
-
-                    </div>
-                    <small>44 items left</small>
-                </m.div>
-                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
-                         whileInView={{opacity: 1, visibility:"visible", y:0}}
-                       transition={{delay: 2}}
-                    className={"e_items"}>
-                    <div className={"fav_img"}>
-                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={native} alt={"e_items"}/>
-                    </div>
-                    <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
-                    <div>
-                        <b className={"price"}>{naira.format(13000)}</b>
-                        <div className={"discount"}>
-                            <s>{naira.format(17500)}</s>
-                            <span>10%</span>
-                        </div>
-                    </div>
-
-                    <div className={"rating"}>
-                        <div className={"stars"}>
-
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStartLight} size={"lg"}/>
-                        </div>
-                        <span>(3990)</span>
-
-                    </div>
-                    <small>44 items left</small>
-                </m.div>
-                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
-                         whileInView={{opacity: 1, visibility:"visible", y:0}}
-                       transition={{delay: 2}}
-                    className={"e_items"}>
-                    <div className={"fav_img"}>
-                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={shoes} alt={"e_items"}/>
-                    </div>
-                    <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
-                    <div>
-                        <b className={"price"}>{naira.format(13000)}</b>
-                        <div className={"discount"}>
-                            <s>{naira.format(17500)}</s>
-                            <span>10%</span>
-                        </div>
-                    </div>
-
-                    <div className={"rating"}>
-                        <div className={"stars"}>
-
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStartLight} size={"lg"}/>
-                        </div>
-                        <span>(3990)</span>
-
-                    </div>
-                    <small>44 items left</small>
-                </m.div>
-                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
-                         whileInView={{opacity: 1, visibility:"visible", y:0}}
-                       transition={{delay: 2}}
-                    className={"e_items"}>
-                    <div className={"fav_img"}>
-                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={bags} alt={"e_items"}/>
-                    </div>
-                    <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
-                    <div>
-                        <b className={"price"}>{naira.format(13000)}</b>
-                        <div className={"discount"}>
-                            <s>{naira.format(17500)}</s>
-                            <span>10%</span>
-                        </div>
-                    </div>
-
-                    <div className={"rating"}>
-                        <div className={"stars"}>
-
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStartLight} size={"lg"}/>
-                        </div>
-                        <span>(3990)</span>
-
-                    </div>
-                    <small>44 items left</small>
-                </m.div>
-                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
-                         whileInView={{opacity: 1, visibility:"visible", y:0}}
-                       transition={{delay: 2}}
-                    className={"e_items"}>
-                    <div className={"fav_img"}>
-                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={jeans} alt={"e_items"}/>
-                    </div>
-                    <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
-                    <div>
-                        <b className={"price"}>{naira.format(13000)}</b>
-                        <div className={"discount"}>
-                            <s>{naira.format(17500)}</s>
-                            <span>10%</span>
-                        </div>
-                    </div>
-
-                    <div className={"rating"}>
-                        <div className={"stars"}>
-
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStartLight} size={"lg"}/>
-                        </div>
-                        <span>(3990)</span>
-
-                    </div>
-                    <small>44 items left</small>
-                </m.div>
-                <m.div initial={{opacity: 0, visibility:"hidden", y:20}}
-                         whileInView={{opacity: 1, visibility:"visible", y:0}}
-                       transition={{delay: 2}}
-                    className={"e_items"}>
-                    <div className={"fav_img"}>
-                        <m.img whileHover={{scale: 1.05}} initial={{scale: 1}} src={jacket} alt={"e_items"}/>
-                    </div>
-                    <p className={"title"}>lorem ipsum dolor sit amet, consectetue adipiscing elit</p>
-                    <div>
-                        <b className={"price"}>{naira.format(13000)}</b>
-                        <div className={"discount"}>
-                            <s>{naira.format(17500)}</s>
-                            <span>10%</span>
-                        </div>
-                    </div>
-
-                    <div className={"rating"}>
-                        <div className={"stars"}>
-
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStar} size={"lg"}/>
-                            <FontAwesomeIcon icon={faStartLight} size={"lg"}/>
-                        </div>
-                        <span>(3990)</span>
-
-                    </div>
-                    <small>44 items left</small>
-                </m.div>
-
-            </div>
-            <div className={"view_more"}>
-                <hr/>
-                <Link to={"#"}>See more <FontAwesomeIcon icon={faArrowRightLong}/></Link>
             </div>
             <BestSellers/>
+            <GroupCategory/>
         </main>
     )
 }
