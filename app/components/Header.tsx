@@ -1,12 +1,12 @@
 import {Form, Link} from "react-router";
-import {Loader, LucideMenu, LucideSearch, LucideShoppingBag, ShoppingBag, User, UserPlus} from "lucide-react";
+import {Loader, LucideMenu, LucideSearch, ShoppingBag, User, UserPlus} from "lucide-react";
 import {m,useAnimate} from "motion/react";
-import React, {type BaseSyntheticEvent, useCallback, useState} from "react";
+import React, {type BaseSyntheticEvent, useContext, useState} from "react";
 import {
     NavigationMenu,
     NavigationMenuList,
     NavigationMenuTrigger,
-    navigationMenuTriggerStyle
+
 } from "~/components/ui/navigation-menu";
 import {NavigationMenuContent, NavigationMenuItem} from "@radix-ui/react-navigation-menu";
 import Category from "~/components/Category";
@@ -14,11 +14,11 @@ import {Sheet, SheetContent, SheetFooter} from "~/components/ui/sheet";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebook, faInstagram, faThreads} from "@fortawesome/free-brands-svg-icons";
 import useCart from "~/hooks/useCart";
-import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 
 
 export default function Header(){
+
     const MotionLink = m.create(Link);
     const [ref,animate] = useAnimate();
     const [show, setShow] = useState(false);

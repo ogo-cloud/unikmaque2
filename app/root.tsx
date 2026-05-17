@@ -13,6 +13,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { LazyMotion,domAnimation} from "motion/react";
 import AddToCart from "~/contexts/AddToCart";
 import Countries from "~/contexts/Countries";
+import {Toaster} from "sonner";
+import Alert from "~/contexts/Alert";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -37,13 +39,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-      <AddToCart>
-           <Countries>
-              <LazyMotion features={domAnimation}>
-                  {children}
-              </LazyMotion>
-            </Countries>
-      </AddToCart>
+
+      <Alert>
+          <AddToCart>
+              <Countries>
+                  <LazyMotion features={domAnimation}>
+                      {children}
+                  </LazyMotion>
+              </Countries>
+          </AddToCart>
+      </Alert>
 
           <ScrollRestoration />
           <Scripts />

@@ -1,6 +1,5 @@
 import type { Route } from "./+types/signup";
-import Signup from "~/components/Signup";
-
+import {lazy} from "react";
 
 
 export function meta({}: Route.MetaArgs) {
@@ -9,7 +8,7 @@ export function meta({}: Route.MetaArgs) {
         { name: "description", content: "Create an account and start placing your order " },
     ];
 }
-
+const Signup = lazy(() => import("~/components/Signup"));
 export default function SignupPage() {
     return <Signup/>;
 }

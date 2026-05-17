@@ -1,3 +1,7 @@
+
+import type {Others, Users} from "~/db/schema";
+import type {User as UserCred}  from "firebase/auth";
+
 interface Item{
     id: string;
     name: string;
@@ -32,3 +36,6 @@ interface favourites{
     user_id: string;
 
 }
+type User = typeof Users.$inferSelect & typeof Others.$inferSelect & UserCred;
+
+export type {User, Reviews, description, favourites};

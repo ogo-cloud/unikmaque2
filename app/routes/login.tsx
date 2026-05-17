@@ -8,7 +8,7 @@ import {lazy} from "react";
 export function meta({}: Route.MetaArgs) {
     return [
         { title: "Unikmaque | Sign in"  },
-        { name: "description", content: "Login into your account " },
+        { name: "description", content: "Login into your account to explore goodies" },
     ];
 }
 
